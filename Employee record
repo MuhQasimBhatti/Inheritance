@@ -1,0 +1,102 @@
+//A parent class having same type of data for all employes, derived clases for each type of employee
+#include<iostream>
+using namespace std;
+#include<string>
+
+class Emp
+{
+public:
+	int id;
+	float salary=0;
+	
+	void input()
+	{
+		cout << "Enter ID" << endl;
+		cin >> id;
+		cout << "Enter salary" << endl;
+		cin >> salary;
+	}
+
+	void display()
+	{
+		cout << "-------------Record--------------" << endl;
+		cout << "ID= " << id<<endl;
+		cout << "Salary= " << salary << endl;
+	}
+};
+
+class prof:public Emp
+{
+	string name;
+	const int bps=17;
+public:
+	void input1()
+	{
+		cout << "Enter id" << endl;
+		cin >> id;
+		cout << "Enter Name" << endl;
+		cin.ignore();
+		getline(cin, name);
+		cout << "Enter Salary" << endl;
+		cin >> salary;
+	}
+
+	void display1()
+	{
+		cout << "-------------Record--------------" << endl;
+		cout << "ID= " << id << endl;
+		cout << "Name= " << name << endl;
+		cout << "Salary= " << salary << endl;
+		cout << "BPS= " << bps << endl;
+	}
+};
+
+class LA : public Emp 
+{
+	string name;
+	string job;
+	const int bps = 13;
+public:
+	void input2()
+	{
+		cout << "Enter id" << endl;
+		cin >> id;
+		cout << "Enter Name" << endl;
+		cin.ignore();
+		getline(cin, name);
+		cout << "Enter his job description" << endl;
+		getline(cin, job);
+		cout << "Enter Salary" << endl;
+		cin >> salary;
+	}
+
+	void display2()
+	{
+		cout << "-------------Record--------------" << endl;
+		cout << "ID= " << id << endl;
+		cout << "Name= " << name << endl;
+		cout << "Job Descriptions= " << job << endl;
+		cout << "Salary= " << salary << endl;
+		cout << "BPS= " << bps << endl;
+	}
+};
+
+int main()
+{
+
+	prof A;
+	LA B;
+	char x;
+	cout << "For Professor press A and for Lab attendant press B" << endl;
+	cin >> x;
+	switch(x)
+	{
+	case 'A':
+		A.input1();
+		A.display1();
+		break;
+	case 'B':
+		B.input2();
+		B.display2();
+	}
+}
